@@ -1,8 +1,11 @@
 import { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { GlobalStyle } from './GlobalStyle';
+import { Layout } from './Layout';
 import { Notification } from './Notification/Notification';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
+
 
 export class App extends Component {
   state = {
@@ -32,7 +35,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <Layout>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={Object.keys(this.state)}
@@ -53,7 +56,9 @@ export class App extends Component {
         ) : (
           <Notification message={'There is no feedback'} />
         )}
-      </div>
+
+        <GlobalStyle/>
+      </Layout>
     );
   }
 }
